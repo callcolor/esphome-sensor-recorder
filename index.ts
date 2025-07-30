@@ -72,6 +72,10 @@ const main = async () => {
       }
     });
 
+    evtSource.onopen = (e) => {
+      console.log("onopen", e);
+    };
+
     evtSource.onerror = (e) => {
       console.log("onerror", e, e.message);
     };
