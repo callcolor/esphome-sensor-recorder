@@ -1,0 +1,11 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "command": "npx tsx index.ts",
+      "name": "launch",
+      "request": "launch",
+      "type": "node-terminal"
+    }
+  ]
+}
