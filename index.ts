@@ -32,6 +32,8 @@ const main = async () => {
   const establishNativeClientConnection = (host: string) => {
     // Connecting to native client to avoid device restarting every 15 minutes.
     // ESPHome issue discussion: https://github.com/esphome/feature-requests/issues/2694
+    console.log("establishNativeClientConnection");
+
     const client = new Client({
       host,
       port: 6053,
@@ -44,6 +46,8 @@ const main = async () => {
   const connectEventSource = (host: string) => {
     // Server-side events.
     // https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events
+    console.log("connectEventSource");
+
     const evtSource = new EventSource(`http://${host}/events`);
 
     evtSource.addEventListener("state", async (event: DataEvent) => {
@@ -75,6 +79,7 @@ const main = async () => {
 
   if (process.env.FUSEBOXIP) {
     // Preset device IP.
+    console.log("Device IP:", process.env.FUSEBOXIP);
     establishNativeClientConnection(process.env.FUSEBOXIP);
     connectEventSource(process.env.FUSEBOXIP);
   } else {
