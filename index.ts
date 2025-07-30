@@ -70,6 +70,7 @@ const main = async () => {
               "state",
               "timestamp"
             )}
+            ON CONFLICT DO NOTHING
           `;
         }
       }
