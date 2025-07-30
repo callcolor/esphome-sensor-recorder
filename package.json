@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "start": "npx tsx index.ts"
+    "start": "npx tsx index.ts",
+    "build": "tsc"
   },
   "dependencies": {
     "@2colors/esphome-native-api": "^1.3.2",
