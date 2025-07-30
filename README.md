@@ -11,6 +11,7 @@ https://wiki.seeedstudio.com/2_channel_wifi_ac_energy_meter/
 
 CREATE TABLE public.state (
 id varchar NOT NULL,
+name varchar,
 value float4 NOT NULL,
 state varchar NOT NULL,
 "timestamp" timestamp NOT NULL,

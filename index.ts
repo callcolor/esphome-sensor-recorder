@@ -14,6 +14,7 @@ interface DataEvent extends Event {
 
 interface SensorData {
   id?: string;
+  name?: string;
   value: number;
   state: string;
   timestamp: Date;
@@ -54,20 +55,22 @@ const main = async () => {
       console.log("state", event.data);
       if (event.data) {
         const data: SensorData = {
+          name: null,
           ...JSON.parse(event.data),
           timestamp: new Date(),
         };
         if (data.id?.startsWith("sensor-")) {
           lastMessageAt = new Date().getTime();
           await sql`
-                insert into state ${sql(
-                  data,
-                  "id",
-                  "value",
-                  "state",
-                  "timestamp"
-                )}
-              `;
+            insert into state ${sql(
+              data,
+              "id",
+              "name",
+              "value",
+              "state",
+              "timestamp"
+            )}
+          `;
         }
       }
     });
